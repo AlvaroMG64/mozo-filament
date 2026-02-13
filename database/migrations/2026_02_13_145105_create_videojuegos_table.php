@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('videojuegos', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
+            $table->text('descripcion')->nullable();
+            $table->decimal('precio', 8, 2);
+            $table->integer('stock');
+            $table->unsignedBigInteger('genero_id');
+            $table->year('anio_lanzamiento');
             $table->timestamps();
+
+            $table->foreign('genero_id')->references('id')->on('generos')->onDelete('cascade');
         });
     }
 

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('plataformas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->year('anio_lanzamiento');
             $table->timestamps();
         });
     }
