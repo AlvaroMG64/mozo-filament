@@ -12,6 +12,11 @@ class Genero extends Model
 
     protected $fillable = ['nombre'];
 
+    /**
+     * Relación 1:n: un género tiene muchos videojuegos
+     *
+     * @return HasMany<int, Videojuego>
+     */
     public function videojuegos(): HasMany
     {
         return $this->hasMany(Videojuego::class);

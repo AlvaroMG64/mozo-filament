@@ -10,16 +10,8 @@ return new class extends Migration
     {
         Schema::create('plataforma_videojuego', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('videojuego_id')
-                  ->constrained('videojuegos')
-                  ->cascadeOnDelete();
-
-            $table->foreignId('plataforma_id')
-                  ->constrained('plataformas')
-                  ->cascadeOnDelete();
-
-            $table->timestamps();
+            $table->foreignId('plataforma_id')->constrained('plataformas')->onDelete('cascade');
+            $table->foreignId('videojuego_id')->constrained('videojuegos')->onDelete('cascade');
         });
     }
 

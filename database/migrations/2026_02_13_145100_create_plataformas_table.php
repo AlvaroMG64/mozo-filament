@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('plataformas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->integer('anio_lanzamiento');
+            $table->string('nombre')->unique();
+            $table->year('anio_lanzamiento');
             $table->timestamps();
         });
     }
