@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -16,21 +16,15 @@ class Videojuego extends Model
         'descripcion',
         'precio',
         'stock',
-        'genero_id',
         'anio_lanzamiento',
+        'genero_id'
     ];
 
-    /**
-     * Videojuego pertenece a un género
-     */
     public function genero(): BelongsTo
     {
         return $this->belongsTo(Genero::class);
     }
 
-    /**
-     * Videojuego puede estar en muchas plataformas
-     */
     public function plataformas(): BelongsToMany
     {
         return $this->belongsToMany(Plataforma::class);

@@ -6,22 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('plataformas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->year('anio_lanzamiento');
+            $table->integer('anio_lanzamiento');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('plataformas');
